@@ -1,0 +1,29 @@
+
+{
+    "name": "tech-twitter-backend",
+    "version": "1.0.0",
+    "description": "Backend for tech Twitter clone",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "nodemon server.js"
+    },
+    "dependencies": {
+      "aws-sdk": "^2.1097.0",
+      "axios": "^0.26.1",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.0",
+      "express": "^4.17.3",
+      "firebase-admin": "^10.0.2",
+      "helmet": "^5.0.2",
+      "mongoose": "^6.2.9",
+      "morgan": "^1.10.0",
+      "multer": "^1.4.4",
+      "redis": "^4.0.6",
+      "socket.io": "^4.4.1",
+      "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.15"
+    }
+  }
