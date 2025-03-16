@@ -13,6 +13,7 @@
       "bundleIdentifier": "com.anonymous.pixelverse"
     },
     "android": {
+      "package": "com.anonymous.pixelverse",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
