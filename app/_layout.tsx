@@ -1,4 +1,5 @@
 // app/_layout.tsx
+import { View, Text } from 'react-native'
 import React from 'react';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -9,33 +10,43 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { AuthProvider } from './context/AuthContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from 'expo-router'
+import TabBar from '../components/TabBar'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  // Use Slot instead of Stack
+const _layout = () => {
   return (
-    <AuthProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Slot />
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </AuthProvider>
-  );
+    <Tabs
+        tabBar={props=> <TabBar {...props} />}
+    >
+        <Tabs.Screen
+            name="index"
+            options={{
+                title: "Home"
+            }}
+        />
+        <Tabs.Screen
+            name="explore"
+            options={{
+                title: "Explore"
+            }}
+        />
+        <Tabs.Screen
+            name="create"
+            options={{
+                title: "Create"
+            }}
+        />
+        <Tabs.Screen
+            name="profile"
+            options={{
+                title: "Profile"
+            }}
+        />
+    </Tabs>
+  )
 }
+
+export default _layout
