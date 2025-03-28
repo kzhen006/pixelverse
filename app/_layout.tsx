@@ -1,4 +1,4 @@
-// app/_layout.jsx
+// app/_layout.tsx
 import { View, Text } from 'react-native'
 import React from 'react';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
